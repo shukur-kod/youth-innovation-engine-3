@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youth Innovation Engine — Scalable EdTech Platform Ready for Acquisition</title>
+    <style>
+        /* Global Reset & Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Layout Containers */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        /* Navigation Bar */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1e293b;
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #38bdf8;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: #94a3b8;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        .lang-switcher {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #f8fafc;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #0284c7;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #0369a1;
+        }
+
+        .btn-secondary {
+            background: #1e293b;
+            color: #f8fafc;
+            border: 1px solid #334155;
+        }
+
+        .btn-secondary:hover {
+            background: #334155;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 120px 0 80px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: #38bdf8;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #94a3b8;
+            max-width: 760px;
+            margin: 0 auto 36px auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* Section Typography */
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #f8fafc;
+        }
+
+        .section-desc {
+            color: #94a3b8;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        /* Cards & Tables */
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 32px;
+            border-radius: 12px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #38bdf8;
+        }
+
+        .card p,
+        .card ul {
+            color: #cbd5e1;
+            font-size: 15px;
+        }
+
+        .card ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        .card ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Form Styling */
+        .inquiry-form {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0284c7;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Youth Innovation Engine</div>
+            <ul class="nav-links">
+                <li><a href="#hero" id="nav-home">Home</a></li>
+                <li><a href="#overview" id="nav-overview">Overview</a></li>
+                <li><a href="#tech" id="nav-tech">Product & Tech</a></li>
+                <li><a href="#features" id="nav-features">Core Features</a></li>
+                <li><a href="#acquisition" id="nav-acq">Acquisition Details</a></li>
+                <li><a href="#contact" id="nav-contact">Contact</a></li>
+                <li>
+                    <button class="lang-switcher" onclick="toggleLanguage()" id="lang-btn">Switch to UZ</button>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <span class="badge" id="hero-badge">STARTUP FOR ACQUISITION</span>
+            <h1 id="hero-title">Youth Innovation Engine — Scalable EdTech & Startup Management Platform</h1>
+            <p id="hero-desc">A fully functional, production-ready web application designed to centralize startup
+                ecosystems, hackathons, incubator pipelines, and project tracking into a seamless digital workflow.</p>
+            <div class="hero-buttons">
+                <a href="#overview" class="btn btn-primary" id="hero-btn-demo">Explore Live Demo</a>
+                <a href="#contact" class="btn btn-secondary" id="hero-btn-inquiry">Submit Acquisition Inquiry</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview / Problem & Solution -->
+    <section id="overview">
+        <div class="container">
+            <h2 class="section-title" id="overview-title">Strategic Overview</h2>
+            <p class="section-desc" id="overview-desc">Why this platform was engineered and what market problem it
+                addresses.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 id="prob-title">The Problem</h3>
+                    <p id="prob-desc">Managing startup ecosystems, tracking early-stage innovation pipelines, and
+                        coordinating multi-tier evaluation in hackathons requires fragmented spreadsheets, manual
+                        oversight, and disconnected communication tools.</p>
+                </div>
+                <div class="card">
+                    <h3 id="sol-title">Our Solution</h3>
+                    <p id="sol-desc">Youth Innovation Engine centralizes project submission, rubric-based peer and
+                        mentor evaluation, real-time analytics, and ecosystem tracking into a single enterprise-ready
+                        interface.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product & Tech Stack -->
+    <section id="tech">
+        <div class="container">
+            <h2 class="section-title" id="tech-title">Tech Stack & Software Architecture</h2>
+            <p class="section-desc" id="tech-desc">Engineered for security, high query throughput, and effortless
+                scalability.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 id="tech-fe-title">Frontend Architecture</h3>
+                    <p id="tech-fe-desc">React-based modern web single-page application framework. Responsive design
+                        across Desktop, Tablet, and Mobile viewports with clean UI/UX components.</p>
+                </div>
+                <div class="card">
+                    <h3 id="tech-be-title">Backend & API Layer</h3>
+                    <p id="tech-be-desc">Scalable RESTful API endpoints, secure Role-Based Access Control (RBAC)
+                        supporting Admins, Mentors, Judges, and Founders.</p>
+                </div>
+                <div class="card">
+                    <h3 id="tech-db-title">Data Storage & Security</h3>
+                    <p id="tech-db-desc">Normalized relational database schema optimized for high query performance,
+                        secured credentials management, and data encryption protocols.</p>
+                </div>
+                <div class="card">
+                    <h3 id="tech-ops-title">Deployment & Integrations</h3>
+                    <p id="tech-ops-desc">Containerized cloud-ready setup, seamless export/import pipelines, compatible
+                        with Agorize ecosystem frameworks and Notion workflow integrations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features -->
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title" id="feat-title">Core Features Matrix</h2>
+            <p class="section-desc" id="feat-desc">Comprehensive toolkit engineered for innovation hubs and hackathon
+                management.</p>
+
+            <div class="grid-4">
+                <div class="card">
+                    <h3 id="f1-title">Centralized Startup Hub</h3>
+                    <p id="f1-desc">Comprehensive project profiles, pitch deck embedding, founder profiles, and
+                        structured submission workflows.</p>
+                </div>
+                <div class="card">
+                    <h3 id="f2-title">Evaluation Engine</h3>
+                    <p id="f2-desc">Customizable rubric-based scoring cards for judges, peer review automation, and
+                        transparent feedback logging.</p>
+                </div>
+                <div class="card">
+                    <h3 id="f3-title">Analytics Dashboard</h3>
+                    <p id="f3-desc">Real-time visualization of startup pipelines, judge scoring distributions, cohort
+                        progress, and demographic metrics.</p>
+                </div>
+                <div class="card">
+                    <h3 id="f4-title">Modular API</h3>
+                    <p id="f4-desc">Designed for easy integration into existing LMS systems, corporate portals, and
+                        third-party innovation platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acquisition Package -->
+    <section id="acquisition">
+        <div class="container">
+            <h2 class="section-title" id="acq-title">Acquisition Asset Package</h2>
+            <p class="section-desc" id="acq-desc">What is included in the full asset and IP transfer upon buyout.</p>
+
+            <div class="card">
+                <ul id="acq-list">
+                    <li><strong>100% Intellectual Property (IP) Transfer:</strong> Full assignment of proprietary source
+                        code rights, Git repositories, software architecture, and codebase history.</li>
+                    <li><strong>Brand & Digital Assets:</strong> Primary domain ownership, digital visual branding
+                        assets, UI component libraries, and media decks.</li>
+                    <li><strong>Technical Documentation:</strong> Comprehensive deployment manuals, database schemas,
+                        REST API documentation, and code structure diagrams.</li>
+                    <li><strong>Handover & Migration Support:</strong> 30 days of direct technical support and
+                        onboarding consultation from the core engineering team to facilitate smooth migration.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Inquiry -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;" id="contact-title">Interested in Acquiring Youth
+                Innovation Engine?</h2>
+            <p class="section-desc" style="text-align: center;" id="contact-desc">We invite direct acquisition inquiries
+                from EdTech companies, venture studios, enterprise software buyers, and innovation hubs.</p>
+
+            <form class="inquiry-form" onsubmit="event.preventDefault(); alert('Inquiry submitted successfully.');">
+                <div class="form-group">
+                    <label id="lbl-name">Full Name / Representative Name</label>
+                    <input type="text" placeholder="e.g. John Doe" required />
+                </div>
+                <div class="form-group">
+                    <label id="lbl-email">Corporate Email Address</label>
+                    <input type="email" placeholder="john@company.com" required />
+                </div>
+                <div class="form-group">
+                    <label id="lbl-company">Company / Entity / Fund Name</label>
+                    <input type="text" placeholder="e.g. Acquirer Ventures" required />
+                </div>
+                <div class="form-group">
+                    <label id="lbl-type">Inquiry Type</label>
+                    <select id="select-type">
+                        <option>Direct Acquisition Offer</option>
+                        <option>Request Tech & Architecture Audit</option>
+                        <option>Schedule Private Demo Call</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label id="lbl-msg">Message / Strategic Fit Details</label>
+                    <textarea rows="4" placeholder="Provide context regarding your interest..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="btn-submit">Submit Acquisition
+                    Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Youth Innovation Engine. All Rights Reserved. Proprietary Asset for Acquisition.</p>
+        </div>
+    </footer>
+
+    <!-- Translation Script -->
+    <script>
+        let currentLang = 'EN';
+
+        const content = {
+            EN: {
+                langBtn: "Switch to UZ",
+                navHome: "Home", navOverview: "Overview", navTech: "Product & Tech", navFeatures: "Core Features", navAcq: "Acquisition Details", navContact: "Contact",
+                badge: "STARTUP FOR ACQUISITION",
+                heroTitle: "Youth Innovation Engine — Scalable EdTech & Startup Management Platform",
+                heroDesc: "A fully functional, production-ready web application designed to centralize startup ecosystems, hackathons, incubator pipelines, and project tracking into a seamless digital workflow.",
+                heroDemo: "Explore Live Demo", heroInquiry: "Submit Acquisition Inquiry",
+                overviewTitle: "Strategic Overview", overviewDesc: "Why this platform was engineered and what market problem it addresses.",
+                probTitle: "The Problem", probDesc: "Managing startup ecosystems, tracking early-stage innovation pipelines, and coordinating multi-tier evaluation in hackathons requires fragmented spreadsheets, manual oversight, and disconnected communication tools.",
+                solTitle: "Our Solution", solDesc: "Youth Innovation Engine centralizes project submission, rubric-based peer and mentor evaluation, real-time analytics, and ecosystem tracking into a single enterprise-ready interface.",
+                techTitle: "Tech Stack & Software Architecture", techDesc: "Engineered for security, high query throughput, and effortless scalability.",
+                feTitle: "Frontend Architecture", feDesc: "React-based modern web single-page application framework. Responsive design across Desktop, Tablet, and Mobile viewports with clean UI/UX components.",
+                beTitle: "Backend & API Layer", beDesc: "Scalable RESTful API endpoints, secure Role-Based Access Control (RBAC) supporting Admins, Mentors, Judges, and Founders.",
+                dbTitle: "Data Storage & Security", dbDesc: "Normalized relational database schema optimized for high query performance, secured credentials management, and data encryption protocols.",
+                opsTitle: "Deployment & Integrations", opsDesc: "Containerized cloud-ready setup, seamless export/import pipelines, compatible with Agorize ecosystem frameworks and Notion workflow integrations.",
+                featTitle: "Core Features Matrix", featDesc: "Comprehensive toolkit engineered for innovation hubs and hackathon management.",
+                f1Title: "Centralized Startup Hub", f1Desc: "Comprehensive project profiles, pitch deck embedding, founder profiles, and structured submission workflows.",
+                f2Title: "Evaluation Engine", f2Desc: "Customizable rubric-based scoring cards for judges, peer review automation, and transparent feedback logging.",
+                f3Title: "Analytics Dashboard", f3Desc: "Real-time visualization of startup pipelines, judge scoring distributions, cohort progress, and demographic metrics.",
+                f4Title: "Modular API", f4Desc: "Designed for easy integration into existing LMS systems, corporate portals, and third-party innovation platforms.",
+                acqTitle: "Acquisition Asset Package", acqDesc: "What is included in the full asset and IP transfer upon buyout.",
+                acqList: `
+          <li><strong>100% Intellectual Property (IP) Transfer:</strong> Full assignment of proprietary source code rights, Git repositories, software architecture, and codebase history.</li>
+          <li><strong>Brand & Digital Assets:</strong> Primary domain ownership, digital visual branding assets, UI component libraries, and media decks.</li>
+          <li><strong>Technical Documentation:</strong> Comprehensive deployment manuals, database schemas, REST API documentation, and code structure diagrams.</li>
+          <li><strong>Handover & Migration Support:</strong> 30 days of direct technical support and onboarding consultation from the core engineering team to facilitate smooth migration.</li>
+        `,
+                contactTitle: "Interested in Acquiring Youth Innovation Engine?",
+                contactDesc: "We invite direct acquisition inquiries from EdTech companies, venture studios, enterprise software buyers, and innovation hubs.",
+                lblName: "Full Name / Representative Name", lblEmail: "Corporate Email Address", lblCompany: "Company / Entity / Fund Name", lblType: "Inquiry Type", lblMsg: "Message / Strategic Fit Details", btnSubmit: "Submit Acquisition Request"
+            },
+            UZ: {
+                langBtn: "Switch to EN",
+                navHome: "Bosh sahifa", navOverview: "Loyiha haqida", navTech: "Texnologiya", navFeatures: "Funksiyalar", navAcq: "Sotuv shartlari", navContact: "Aloqa",
+                badge: "SOTUVGA TAYYOR STARTAP",
+                heroTitle: "Youth Innovation Engine — Sotuvga Tayyor EdTech va Startap Platformasi",
+                heroDesc: "Startap ekotizimlari, xakatonlar va inkubatsiya loyihalarini yagona raqamli tizimda boshqarish uchun mo'ljallangan to'liq ishchi va tayyor web-platforma.",
+                heroDemo: "Demoni Ko'rish", heroInquiry: "Sotuv Bo'yicha So'rov",
+                overviewTitle: "Strategik Umumiy Ko'rinish", overviewDesc: "Platforma nima uchun yaratilgan va u qaysi bozordagi muammoni hal qiladi.",
+                probTitle: "Muammo", probDesc: "Innovatsiya markazlari, xakatonlar va startap ekotizimlarini boshqarish ko'p hollarda tarqoq jadvallar, qo'l mehnatini va bir-biriga bog'lanmagan aloqa vositalarini talab qiladi.",
+                solTitle: "Yechim", solDesc: "Youth Innovation Engine loyihalarni topshirish, baholash mezonlari bo'yicha ekspertiza, real vaqtdagi analitika va ekotizim monitoringini yagona tizimga birlashtiradi.",
+                techTitle: "Texnik Baza va Dasturiy Arxitektura", techDesc: "Yuqori xavfsizlik, tezkor ma'lumot almashinuvi va oson kengayish uchun ishlab chiqilgan.",
+                feTitle: "Frontend Arxitekturasi", feDesc: "React bazasidagi zamonaviy Single-Page veb-ilovasi. Kompyuter, planshet va mobil qurilmalar uchun to'liq moslashgan UI/UX interfeys.",
+                beTitle: "Backend va API Qatlami", beDesc: "Masshtablanuvchi RESTful API, Administrator, Mentor, Hakam va Muassislar uchun rollarga asoslangan xavfsiz kirish tizimi (RBAC).",
+                dbTitle: "Ma'lumotlar Bazi va Xavfsizlik", dbDesc: "Yuqori unumdorlikka ega optimallashtirilgan relyatsion ma'lumotlar bazasi va shifrlangan ma'lumot xavfsizligi.",
+                opsTitle: "Infratuzilma va Integratsiya", opsDesc: "Bulutli serverlarga moslashtirilgan (Containerized) tizim, Agorize va Notion ekotizimlariga moslashuvchan integratsiya.",
+                featTitle: "Asosiy Funksionallik", featDesc: "Innovatsiya markazlari va xakatonlarni boshqarish uchun mo'ljallangan to'liq vositalar to'plami.",
+                f1Title: "Markazlashtirilgan Startap Baza", f1Desc: "Tafsilotli loyiha profillari, pitch deck fayllari, muassislar ma'lumoti va tartiblangan arizalar tizimi.",
+                f2Title: "Baholash Tizimi", f2Desc: "Hakamlar uchun moslashuvchan baholash mezonlari, avtomatlashtirilgan tekshiruv va shaffof fikr-mulohaza paneli.",
+                f3Title: "Analitika Paneli", f3Desc: "Startaplar statistikasi, hakamlar baholashi, guruhlar rivojlanishi va demografik ko'rsatkichlarning real vaqtdagi vizualizatsiyasi.",
+                f4Title: "Modulli API", f4Desc: "Mavjud LMS tizimlari, korporativ portallar va uchinchi tomon platformalariga oson integratsiya qilish uchun mo'ljallangan.",
+                acqTitle: "Xaridorga Topshiriladigan Aktivlar", acqDesc: "Loyiha sotib olinganda beriladigan to'liq intellektual mulk va texnik paket.",
+                acqList: `
+          <li><strong>100% Intellektual Mulk (IP) Huquqlari:</strong> Manba kodi (source code), Git omborxonalari, dasturiy arxitektura va loyiha tarixiga to'liq egalik huquqi.</li>
+          <li><strong>Brend va Raqamli Aktivlar:</strong> Asosiy domen egaligi, brending vizual aktivlari, UI komponentlar kutubxonasi va media materiallar.</li>
+          <li><strong>Texnik Hujjatlashtirish:</strong> Serverga o'rnatish qo'llanmalari, ma'lumotlar bazasi sxemalari hamda REST API hujjatlari.</li>
+          <li><strong>Ko'chirish va Qo'llab-quvvatlash:</strong> Loyihani yangi xaridor serveriga ko'chirish davrida muassislardan 30 kunlik bevosita texnik yordam va konsultatsiya.</li>
+        `,
+                contactTitle: "Youth Innovation Engine Loyihasini Xarid Qilishga Qiziqasizmi?",
+                contactDesc: "EdTech kompaniyalari, venchur studiyalar va korporativ xaridorlardan to'g'ridan-to'g'ri so'rovlarni qabul qilamiz.",
+                lblName: "To'liq Ismingiz / Vakil Ismi", lblEmail: "Korporativ Pochta Manzili", lblCompany: "Kompaniya / Tashkilot / Fond Nomi", lblType: "So'rov Turi", lblMsg: "Xabar / Qo'shimcha Tafsilotlar", btnSubmit: "Sotuv So'rovini Yuborish"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'EN' ? 'UZ' : 'EN';
+            const c = content[currentLang];
+
+            document.getElementById('lang-btn').innerText = c.langBtn;
+            document.getElementById('nav-home').innerText = c.navHome;
+            document.getElementById('nav-overview').innerText = c.navOverview;
+            document.getElementById('nav-tech').innerText = c.navTech;
+            document.getElementById('nav-features').innerText = c.navFeatures;
+            document.getElementById('nav-acq').innerText = c.navAcq;
+            document.getElementById('nav-contact').innerText = c.navContact;
+
+            document.getElementById('hero-badge').innerText = c.badge;
+            document.getElementById('hero-title').innerText = c.heroTitle;
+            document.getElementById('hero-desc').innerText = c.heroDesc;
+            document.getElementById('hero-btn-demo').innerText = c.heroDemo;
+            document.getElementById('hero-btn-inquiry').innerText = c.heroInquiry;
+
+            document.getElementById('overview-title').innerText = c.overviewTitle;
+            document.getElementById('overview-desc').innerText = c.overviewDesc;
+            document.getElementById('prob-title').innerText = c.probTitle;
+            document.getElementById('prob-desc').innerText = c.probDesc;
+            document.getElementById('sol-title').innerText = c.solTitle;
+            document.getElementById('sol-desc').innerText = c.solDesc;
+
+            document.getElementById('tech-title').innerText = c.techTitle;
+            document.getElementById('tech-desc').innerText = c.techDesc;
+            document.getElementById('tech-fe-title').innerText = c.feTitle;
+            document.getElementById('tech-fe-desc').innerText = c.feDesc;
+            document.getElementById('tech-be-title').innerText = c.beTitle;
+            document.getElementById('tech-be-desc').innerText = c.beDesc;
+            document.getElementById('tech-db-title').innerText = c.dbTitle;
+            document.getElementById('tech-db-desc').innerText = c.dbDesc;
+            document.getElementById('tech-ops-title').innerText = c.opsTitle;
+            document.getElementById('tech-ops-desc').innerText = c.opsDesc;
+
+            document.getElementById('feat-title').innerText = c.featTitle;
+            document.getElementById('feat-desc').innerText = c.featDesc;
+            document.getElementById('f1-title').innerText = c.f1Title;
+            document.getElementById('f1-desc').innerText = c.f1Desc;
+            document.getElementById('f2-title').innerText = c.f2Title;
+            document.getElementById('f2-desc').innerText = c.f2Desc;
+            document.getElementById('f3-title').innerText = c.f3Title;
+            document.getElementById('f3-desc').innerText = c.f3Desc;
+            document.getElementById('f4-title').innerText = c.f4Title;
+            document.getElementById('f4-desc').innerText = c.f4Desc;
+
+            document.getElementById('acq-title').innerText = c.acqTitle;
+            document.getElementById('acq-desc').innerText = c.acqDesc;
+            document.getElementById('acq-list').innerHTML = c.acqList;
+
+            document.getElementById('contact-title').innerText = c.contactTitle;
+            document.getElementById('contact-desc').innerText = c.contactDesc;
+            document.getElementById('lbl-name').innerText = c.lblName;
+            document.getElementById('lbl-email').innerText = c.lblEmail;
+            document.getElementById('lbl-company').innerText = c.lblCompany;
+            document.getElementById('lbl-type').innerText = c.lblType;
+            document.getElementById('lbl-msg').innerText = c.lblMsg;
+            document.getElementById('btn-submit').innerText = c.btnSubmit;
+        }
+    </script>
+</body>
+
+</html>
